@@ -9,7 +9,7 @@
     
 </head>
 
-<body >
+<body>
     <h2>Numeral Systems calculator/converter</h2>
     <img src="https://cdn6.aptoide.com/imgs/a/2/e/a2ebbe6d9133a0c515e61f7c07f57496_icon.png" width="200" height="200">
 
@@ -18,43 +18,43 @@
             <!-- Content for the first container -->
             <h2>Calculator</h2>
             <div class="line">
-                <input type="text" class="text-input" placeholder="Enter a number">
-                <select>
+                <input type="text" class="text-input" id="firstNumber" placeholder="Enter a number">
+                <select id="firstNumberTypeType">
                     <option value="binary">Binary</option>
                     <option value="oct">Octal</option>
                     <option value="hex">Hexadecimal</option>
                 </select>
             </div>
             <div class="line">
-                <select>
+                <select id="operator">
                     <option value="+">+</option>
                     <option value="-">-</option>
                     <option value="*">*</option>
                 </select>
             </div>
             <div class="line">
-                <input type="text" class="text-input" placeholder="Enter a number">
-                <select>
+                <input type="text" class="text-input" id="secondNumber" placeholder="Enter a number">
+                <select id="secondNumberType">
                     <option value="binary">Binary</option>
                     <option value="oct">Octal</option>
                     <option value="hex">Hexadecimal</option>
                 </select>
             </div>
             <div class="line">
-                <button type="equlaButton" class="button">
+                <button type="button" id="equalButton" class="button">
                     <span class="shadow"></span>
                     <span class="edge"></span>
                     <span class="front">Equal</span>
                 </button>
                 <div class="spacer"></div>
-                <button type="clearEquButton" class="button">
+                <button type="button" id="clearButton" class="button">
                     <span class="shadow"></span>
                     <span class="edge"></span>
                     <span class="front">Clear</span>
                 </button>
             </div>
             <div class="line">
-                <input type="text" class="text-input" placeholder="Result!!">
+                <input type="text" class="text-input" id="calcResult" placeholder="Result!!">
             </div>
         </div>
         <div class="spacer"></div>
@@ -64,7 +64,7 @@
             <div class="line">
                 <p class="converter-label">FROM</p>
                 <div class="spacer"></div>
-                <select>
+                <select id="convertFrom">
                     <option value="frBinary">Binary</option>
                     <option value="frDec">Decimal</option>
                     <option value="frOctal">Octal</option>
@@ -73,7 +73,7 @@
                 <div class="spacer"></div>
                 <p class="converter-label">TO</p>
                 <div class="spacer"></div>
-                <select>
+                <select id="convertTo">
                     <option value="toBinary">Binary</option>
                     <option value="toDec">Decimal</option>
                     <option value="toOctal">Octal</option>
@@ -82,16 +82,16 @@
             </div>
             
             <div class="line">
-                <input type="text" class="text-input" placeholder="Enter a number">
+                <input type="text" class="text-input" id="convertInput" placeholder="Enter a number">
             </div>
             <div class="line">
-                <button type="convertButton" class="button">
+                <button type="button" id="convertButton" class="button">
                     <span class="shadow"></span>
                     <span class="edge"></span>
                     <span class="front">Convert</span>
                 </button>
                 <div class="spacer"></div>
-                <button type="clearConButton" class="button">
+                <button type="button" id="clearConvertButton" class="button">
                     <span class="shadow"></span>
                     <span class="edge"></span>
                     <span class="front">Clear</span>
