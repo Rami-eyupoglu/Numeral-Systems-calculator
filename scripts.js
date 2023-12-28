@@ -3,7 +3,53 @@ const clearConButton = document.getElementById('clearConvertButton');
 const fromSelect = document.getElementById('convertFrom');
 const toSelect = document.getElementById('convertTo');
 const userInput = document.getElementById('convertInput'); //the number that we need to convert
-const resultOutput = document.getElementById('conResOutput'); //the result after the convertion.
+const convResultOutput = document.getElementById('conResOutput'); //the result after the convertion.
+const firstNumber = document.getElementById('firstNumber');
+const secondNumber = document.getElementById('secondNumber');
+const calResultOutput = document.getElementById('calcResult');
+const operator = document.getElementById('operator');
+const firstNumberType = document.getElementById('firstNumberType');
+const secondNumberType = document.getElementById('secondNumberType');
+const calculateButton = document.getElementById('equalButton');
+const calClearButton = document.getElementById('clearButton');
+
+calculateButton.addEventListener('click', function(){
+    const num1 = parseInt(firstNumber.value);
+    const num2 = parseInt(secondNumber.value);
+    const num1_type = firstNumberType.value;
+    const num2_type = secondNumberType.value;
+
+    if(num1_type === 'binary' && num2_type === 'binary'){
+        if (operator.value === '+') {
+            const result = parseInt(num1, 2) + parseInt(num2, 2);
+            calResultOutput.value = result.toString(2);
+        } else if (operator.value ==='-') {
+            const result = parseInt(num1, 2) - parseInt(num2, 2);
+            calResultOutput.value = result.toString(2);
+        } else if (operator.value ==='*'){
+            const result = parseInt(num1, 2) * parseInt(num2, 2);
+            calResultOutput.value = result.toString(2);
+        } else if (operator.value ==='/'){
+            const result = parseInt(num1, 2) / parseInt(num2, 2);
+            calResultOutput.value = result.toString(2);
+        }
+
+
+
+
+    } else {
+        alert("Invalid number types"); // Provide feedback for incorrect number types
+    }
+})
+
+calClearButton.addEventListener('click', function(){
+    firstNumber.value = '';
+    secondNumber.value = '';
+    calResultOutput.value = '';
+});
+
+
+
 
 //the convert button operations ...
 convertButton.addEventListener('click', function () {
@@ -16,43 +62,43 @@ convertButton.addEventListener('click', function () {
         // from decimal to ......
         if (fromValue === "frDec" && toValue === "toBinary") {
             const Result = inputNumber.toString(2);
-            resultOutput.value = Result;
+            convResultOutput.value = Result;
         } else if (fromValue === "frDec" && toValue === "toOctal") {
             const Result = inputNumber.toString(8);
-            resultOutput.value = Result;
+            convResultOutput.value = Result;
         } else if (fromValue === "frDec" && toValue === "toHex") {
             const Result = inputNumber.toString(16);
-            resultOutput.value = Result;
+            convResultOutput.value = Result;
             // from Binary to ...... 
         } else if (fromValue === "frBinary" && toValue === "toDec") {
             const Result = parseInt(inputNumber, 2);
-            resultOutput.value = Result;
+            convResultOutput.value = Result;
         } else if (fromValue === "frBinary" && toValue === "toOctal") {
             const Result = parseInt(inputNumber, 8);
-            resultOutput.value = Result;
+            convResultOutput.value = Result;
         } else if (fromValue === "frBinary" && toValue === "toHex") {
             const Result = parseInt(inputNumber, 16);
-            resultOutput.value = Result;
+            convResultOutput.value = Result;
             // from octal to ......
         } else if (fromValue === "frOctal" && toValue === "toBinary") {
             const Result = parseInt(inputNumber, 8).toString(2);
-            resultOutput.value = Result;
+            convResultOutput.value = Result;
         } else if (fromValue === "frOctal" && toValue === "toDec") {
             const Result = parseInt(inputNumber, 8).toString(10);
-            resultOutput.value = Result;
+            convResultOutput.value = Result;
         } else if (fromValue === "frOctal" && toValue === "toHex") {
             const Result = parseInt(inputNumber, 8).toString(16);
-            resultOutput.value = Result;
+            convResultOutput.value = Result;
             // from Hexdecimal to .....
         } else if (fromValue === "frHex" && toValue === "toBinary") {
             const Result = parseInt(inputNumber, 16).toString(2);
-            resultOutput.value = Result;
+            convResultOutput.value = Result;
         } else if (fromValue === "frHex" && toValue === "toDec") {
             const Result = parseInt(inputNumber, 16).toString(10);
-            resultOutput.value = Result;
+            convResultOutput.value = Result;
         } else if (fromValue === "frHex" && toValue === "toOctal") {
             const Result = parseInt(inputNumber, 16).toString(8);
-            resultOutput.value = Result;
+            convResultOutput.value = Result;
         } else if ((fromValue === "frBinary" && toValue === "toBinary") ||
             (fromValue === "frDec" && toValue === "toDec") ||
             (fromValue === "frOctal" && toValue === "toOctal") ||
@@ -66,5 +112,5 @@ convertButton.addEventListener('click', function () {
 // Event listener for the clear button
 clearConButton.addEventListener('click', function () {
     userInput.value = '';
-    resultOutput.value = '';
+    convResultOutput.value = '';
 });
