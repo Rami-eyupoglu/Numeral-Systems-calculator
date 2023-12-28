@@ -24,7 +24,7 @@ calculateButton.addEventListener('click', function(){
             const result = parseInt(num1, 2) + parseInt(num2, 2);
             calResultOutput.value = result.toString(2);
         } else if (operator.value ==='-') {
-            const result = parseInt(num1, 2) - parseInt(num2, 2);
+            const result = (parseInt(num1, 2) - parseInt(num2, 2));
             calResultOutput.value = result.toString(2);
         } else if (operator.value ==='*'){
             const result = parseInt(num1, 2) * parseInt(num2, 2);
@@ -74,10 +74,10 @@ convertButton.addEventListener('click', function () {
             const Result = parseInt(inputNumber, 2);
             convResultOutput.value = Result;
         } else if (fromValue === "frBinary" && toValue === "toOctal") {
-            const Result = parseInt(inputNumber, 8);
+            const Result = parseInt(inputNumber, 2).toString(8);
             convResultOutput.value = Result;
         } else if (fromValue === "frBinary" && toValue === "toHex") {
-            const Result = parseInt(inputNumber, 16);
+            const Result = parseInt(inputNumber, 2).toString(16);
             convResultOutput.value = Result;
             // from octal to ......
         } else if (fromValue === "frOctal" && toValue === "toBinary") {
