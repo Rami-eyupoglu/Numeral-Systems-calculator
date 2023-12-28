@@ -1,9 +1,3 @@
-// Function to convert decimal to binary
-/*function convertDecimalToBinary(decimalNumber) {
-    return decimalNumber.toString(2);
-}
-*/
-// Get references to the necessary elements
 const convertButton = document.getElementById('convertButton');
 const clearConButton = document.getElementById('clearConvertButton');
 const fromSelect = document.getElementById('convertFrom');
@@ -65,12 +59,10 @@ convertButton.addEventListener('click', function () {
             (fromValue === "frHex" && toValue === "toHex")) {
             alert("Both numeral systems are the same. No conversion needed.");
         }
-
     } else {
-        alert('Please enter a valid decimal number.');
+        alert('Please enter a valid number.');
     }
 });
-
 // Event listener for the clear button
 clearConButton.addEventListener('click', function () {
     userInput.value = '';
