@@ -13,7 +13,7 @@ const secondNumberType = document.getElementById('secondNumberType');
 const calculateButton = document.getElementById('equalButton');
 const calClearButton = document.getElementById('clearButton');
 
-function andOperation(bin1, bin2) {
+function and_Operation(bin1, bin2) {
     const num1 = parseInt(bin1, 2);
     const num2 = parseInt(bin2, 2);
 
@@ -23,7 +23,7 @@ function andOperation(bin1, bin2) {
 
     return binaryResult;
 }
-function orOperation(bin1, bin2) {
+function or_Operation(bin1, bin2) {
     const num1 = parseInt(bin1, 2);
     const num2 = parseInt(bin2, 2);
 
@@ -54,10 +54,10 @@ calculateButton.addEventListener('click', function () {
             const result = parseInt(num1, 2) / parseInt(num2, 2);
             calResultOutput.value = result.toString(2);
         } else if (operator.value === 'and') {
-            const binResult = andOperation(num1, num2);
+            const binResult = and_Operation(num1, num2);
             calResultOutput.value = binResult;
         } else if (operator.value === 'or') {
-            const binResult = orOperation(num1, num2);
+            const binResult = or_Operation(num1, num2);
             calResultOutput.value = binResult;
         }
     } else if ((num1_type === 'oct' && num2_type === 'oct')){
