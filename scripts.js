@@ -13,36 +13,73 @@ const secondNumberType = document.getElementById('secondNumberType');
 const calculateButton = document.getElementById('equalButton');
 const calClearButton = document.getElementById('clearButton');
 
-calculateButton.addEventListener('click', function(){
+function andOperation(bin1, bin2) {
+    const num1 = parseInt(bin1, 2);
+    const num2 = parseInt(bin2, 2);
+
+    const result = num1 & num2;
+
+    const binaryResult = result.toString(2);
+
+    return binaryResult;
+}
+function orOperation(bin1, bin2) {
+    const num1 = parseInt(bin1, 2);
+    const num2 = parseInt(bin2, 2);
+
+    const result = num1 | num2;
+
+    const binaryResult = result.toString(2);
+
+    return binaryResult;
+}
+
+calculateButton.addEventListener('click', function () {
     const num1 = parseInt(firstNumber.value);
     const num2 = parseInt(secondNumber.value);
     const num1_type = firstNumberType.value;
     const num2_type = secondNumberType.value;
 
-    if(num1_type === 'binary' && num2_type === 'binary'){
+    if (num1_type === 'binary' && num2_type === 'binary') {
         if (operator.value === '+') {
             const result = parseInt(num1, 2) + parseInt(num2, 2);
             calResultOutput.value = result.toString(2);
-        } else if (operator.value ==='-') {
+        } else if (operator.value === '-') {
             const result = (parseInt(num1, 2) - parseInt(num2, 2));
             calResultOutput.value = result.toString(2);
-        } else if (operator.value ==='*'){
+        } else if (operator.value === '*') {
             const result = parseInt(num1, 2) * parseInt(num2, 2);
             calResultOutput.value = result.toString(2);
-        } else if (operator.value ==='/'){
+        } else if (operator.value === '/') {
             const result = parseInt(num1, 2) / parseInt(num2, 2);
             calResultOutput.value = result.toString(2);
+        } else if (operator.value === 'and') {
+            const binResult = andOperation(num1, num2);
+            calResultOutput.value = binResult;
+        } else if (operator.value === 'or') {
+            const binResult = orOperation(num1, num2);
+            calResultOutput.value = binResult;
         }
+    } else if ((num1_type === 'oct' && num2_type === 'oct')){
+        if (operator.value === '+') {
+            const result = parseInt(num1, 8) + parseInt(num2, 8);
+            calResultOutput.value = result.toString(8);
+        } else if (operator.value === '-') {
+            const result = (parseInt(num1, 8) - parseInt(num2, 8));
+            calResultOutput.value = result.toString(8);
+        } else if (operator.value === '*') {
+            const result = parseInt(num1, 8) * parseInt(num2, 8);
+            calResultOutput.value = result.toString(8);
+        } else if (operator.value === '/') {
+            const result = parseInt(num1, 8) / parseInt(num2, 8);
+            calResultOutput.value = result.toString(8);
+        }
+    }else {
+            alert("Invalid number types"); 
+        }
+    })
 
-
-
-
-    } else {
-        alert("Invalid number types"); // Provide feedback for incorrect number types
-    }
-})
-
-calClearButton.addEventListener('click', function(){
+calClearButton.addEventListener('click', function () {
     firstNumber.value = '';
     secondNumber.value = '';
     calResultOutput.value = '';
