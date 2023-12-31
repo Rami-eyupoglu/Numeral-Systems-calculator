@@ -152,7 +152,7 @@ select {
     --size: 0.3rem;
     content: "";
     position: absolute;
-    right: 1rem;
+    right: 0.5rem;
     pointer-events: none;
 }
 

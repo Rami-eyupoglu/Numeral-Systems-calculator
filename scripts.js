@@ -13,6 +13,8 @@ const secondNumberType = document.getElementById('secondNumberType');
 const calculateButton = document.getElementById('equalButton');
 const calClearButton = document.getElementById('clearButton');
 
+
+
 function and_Operation(bin1, bin2) {
     const num1 = parseInt(bin1, 2);
     const num2 = parseInt(bin2, 2);
@@ -60,7 +62,7 @@ calculateButton.addEventListener('click', function () {
             const binResult = or_Operation(num1, num2);
             calResultOutput.value = binResult;
         }
-    } else if ((num1_type === 'oct' && num2_type === 'oct')){
+    } else if ((num1_type === 'oct' && num2_type === 'oct')) {
         if (operator.value === '+') {
             const result = parseInt(num1, 8) + parseInt(num2, 8);
             calResultOutput.value = result.toString(8);
@@ -73,11 +75,35 @@ calculateButton.addEventListener('click', function () {
         } else if (operator.value === '/') {
             const result = parseInt(num1, 8) / parseInt(num2, 8);
             calResultOutput.value = result.toString(8);
+        } else if (operator.value === 'and') {
+            alert("You can't do AND operation between octal numbers")
+        } else if (operator.value === 'or') {
+            alert("You can't do OR operation between octal numbers")
         }
+    } else if (num1_type === 'hex' && num2_type === 'hex') {
+        if (operator.value === '+') {
+            const result = parseInt(num1, 16) + parseInt(num2, 16);
+            calResultOutput.value = result.toString(16);
+        } else if (operator.value === '-') {
+            const result = (parseInt(num1, 16) - parseInt(num2, 16));
+            calResultOutput.value = result.toString(16);
+        } else if (operator.value === '*') {
+            const result = parseInt(num1, 16) * parseInt(num2, 16);
+            calResultOutput.value = result.toString(16);
+        } else if (operator.value === '/') {
+            const result = parseInt(num1, 16) / parseInt(num2, 16);
+            calResultOutput.value = result.toString(16);
+        } else if (operator.value === 'and') {
+            alert("You can't do AND operation between Hexadecimal numbers")
+        } else if (operator.value === 'or') {
+            alert("You can't do OR operation between Hexadecimal numbers")
+        }
+    } else if (num1_type !== num2_type) {
+        alert("Cannot perform operations between different number types");
     }else {
-            alert("Invalid number types"); 
+            alert("Invalid number types");
         }
-    })
+    });
 
 calClearButton.addEventListener('click', function () {
     firstNumber.value = '';
