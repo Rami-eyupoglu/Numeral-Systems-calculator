@@ -12,7 +12,36 @@ const firstNumberType = document.getElementById('firstNumberType');
 const secondNumberType = document.getElementById('secondNumberType');
 const calculateButton = document.getElementById('equalButton');
 const calClearButton = document.getElementById('clearButton');
+/* ---------------------YENİ EKLENDİ------------------ */
+//control the input in calculator section.
+function CalNumberInputControl(input, numeralSystem) {
+    if (numeralSystem === 'binary') {
+        // Allow only 0 or 1
+        input.value = input.value.replace(/[^0-1]/g, '');
+    } else if (numeralSystem === 'oct') {
+        // Allow only numbers from 0 to 7
+        input.value = input.value.replace(/[^0-7]/g, '');
+    } else if (numeralSystem === 'hex') {
+        // Allow lowercase a-f, uppercase A-F, and numbers from 0-9
+        input.value = input.value.replace(/[^0-9a-fA-F]/g, '');
+    }
+}
 
+function ConvertNumberInputControl(input, numeralSystem) {
+    if (numeralSystem === 'frBinary') {
+        // Allow only 0 or 1
+        input.value = input.value.replace(/[^0-1]/g, '');
+    } else if (numeralSystem === 'frOctal') {
+        // Allow only numbers from 0 to 7
+        input.value = input.value.replace(/[^0-7]/g, '');
+    } else if (numeralSystem === 'frHex') {
+        // Allow lowercase a-f, uppercase A-F, and numbers from 0-9
+        input.value = input.value.replace(/[^0-9a-fA-F]/g, '');
+    } else {
+        input.value = input.value.replace(/[^0-9]/g, '')
+    }
+}
+/* ---------------------YENİ EKLENDİ------------------ */
 
 
 function and_Operation(bin1, bin2) {
@@ -37,11 +66,13 @@ function or_Operation(bin1, bin2) {
 }
 
 calculateButton.addEventListener('click', function () {
+    //convert the inout to integer.
     const num1 = parseInt(firstNumber.value);
     const num2 = parseInt(secondNumber.value);
+    //get the type of numbers.
     const num1_type = firstNumberType.value;
     const num2_type = secondNumberType.value;
-
+    //handle the opetions between tow binary numbers
     if (num1_type === 'binary' && num2_type === 'binary') {
         if (operator.value === '+') {
             const result = parseInt(num1, 2) + parseInt(num2, 2);
@@ -62,6 +93,7 @@ calculateButton.addEventListener('click', function () {
             const binResult = or_Operation(num1, num2);
             calResultOutput.value = binResult;
         }
+        //handle the opetions between tow octal numbers
     } else if ((num1_type === 'oct' && num2_type === 'oct')) {
         if (operator.value === '+') {
             const result = parseInt(num1, 8) + parseInt(num2, 8);
@@ -80,6 +112,7 @@ calculateButton.addEventListener('click', function () {
         } else if (operator.value === 'or') {
             alert("You can't do OR operation between octal numbers")
         }
+        //handle the opetions between tow hexadecimal numbers
     } else if (num1_type === 'hex' && num2_type === 'hex') {
         if (operator.value === '+') {
             const result = parseInt(num1, 16) + parseInt(num2, 16);

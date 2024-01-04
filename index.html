@@ -18,7 +18,7 @@
             <!-- Content for the first container -->
             <h2>Calculator</h2>
             <div class="line">
-                <input type="text" class="text-input" id="firstNumber" placeholder="Enter a number">
+                <input type="text" class="text-input" id="firstNumber" placeholder="Enter a number" oninput="CalNumberInputControl(this, firstNumberType.value)">
                 <select id="firstNumberType">
                     <option value="binary">Binary</option>
                     <option value="oct">Octal</option>
@@ -36,7 +36,7 @@
                 </select>
             </div>
             <div class="line">
-                <input type="text" class="text-input" id="secondNumber" placeholder="Enter a number">
+                <input type="text" class="text-input" id="secondNumber" placeholder="Enter a number" oninput="validateNumberInput(this, secondNumberType.value)">
                 <select id="secondNumberType">
                     <option value="binary">Binary</option>
                     <option value="oct">Octal</option>
@@ -85,7 +85,7 @@
             </div>
             
             <div class="line">
-                <input type="text" class="text-input" id="convertInput" placeholder="Enter a number">
+                <input type="text" class="text-input" id="convertInput" placeholder="Enter a number" oninput="ConvertNumberInputControl(this, convertFrom.value)">
             </div>
             <div class="line">
                 <button type="button" id="convertButton" class="button">
