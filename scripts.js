@@ -22,8 +22,8 @@ function CalNumberInputControl(input, numeralSystem) {
         // Allow only numbers from 0 to 7
         input.value = input.value.replace(/[^0-7]/g, '');
     } else if (numeralSystem === 'hex') {
-        // Allow lowercase a-f, uppercase A-F, and numbers from 0-9
-        input.value = input.value.replace(/[^0-9a-fA-F]/g, '');
+        // numbers from 0-9
+        input.value = input.value.replace(/[^0-9]/g, '');
     }
 }
 
@@ -36,7 +36,7 @@ function ConvertNumberInputControl(input, numeralSystem) {
         input.value = input.value.replace(/[^0-7]/g, '');
     } else if (numeralSystem === 'frHex') {
         // Allow lowercase a-f, uppercase A-F, and numbers from 0-9
-        input.value = input.value.replace(/[^0-9a-fA-F]/g, '');
+        input.value = input.value.replace(/[^0-9]/g, '');
     } else {
         input.value = input.value.replace(/[^0-9]/g, '')
     }
@@ -45,11 +45,12 @@ function ConvertNumberInputControl(input, numeralSystem) {
 
 
 function and_Operation(bin1, bin2) {
+    //convert the number to decimal.
     const num1 = parseInt(bin1, 2);
     const num2 = parseInt(bin2, 2);
 
     const result = num1 & num2;
-
+    //convert the decimal to binary back.
     const binaryResult = result.toString(2);
 
     return binaryResult;
